@@ -11,7 +11,7 @@ contract Calculator {
     }
 }
 
-contract Ex6_03 {
+contract Ex6_01 {
     Calculator internal calculator = new Calculator();
     function getNumbers() public view returns(uint, uint) {
         return (calculator.mul(4, 5), calculator.mul(4, 5, 6));

@@ -4,7 +4,7 @@ pragma solidity >=0.7.0 < 0.9.0;
 contract Ex6_13 {
     address public owner;
     modifier onlyOwner() {
-        require(owner == msg.sender, "ErrorL caller is not the owner");
+        require(owner == msg.sender, "Error: caller is not the owner");
         _;
     }
     constructor() {
