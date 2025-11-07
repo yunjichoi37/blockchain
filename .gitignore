@@ -1,0 +1,6 @@
+# Compiled artifacts and metadata
+artifacts/
+.states/
+
+# Remix configuration
+remix.config.json
