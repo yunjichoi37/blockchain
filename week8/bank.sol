@@ -18,6 +18,7 @@ contract Bank {
     }
 
     function deposit() public payable {         // eth를 받을 수 있게 payable로 설정해준다.
+        // require(amount > 0, "Deposit amount must be greater than 0.");
         balances[msg.sender] += msg.value;      // 입금자의 은행 잔고를 업데이트 한다.
         emit Deposit(msg.sender, msg.value);    // 이벤트를 발생시킨다.
     }
@@ -39,6 +40,7 @@ contract Bank {
 
         // 출금자를 payable로 설정하고, 출금 금액에 1 ehter를 곱해 보낸다.
         (bool success, ) = payable(msg.sender).call{value:amount * 1 ether}("");
+        // payable(msg.sender).transfer(amount * 1 ether); // 교수님
 
         require(success, "withdraw failed.");       // 출금 실패시 require
         emit Withdrawal(msg.sender, amount);        // 이벤트를 발생시킨다.
